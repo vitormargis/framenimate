@@ -6,39 +6,61 @@
   <script></script>
 </head>
 <style>
-
-  .frame{
-    transition: opacity .1s ease;
+  .wrapper{
     position: absolute;
-    opacity: 0;
+    width: 900px;
+    margin: -300px 0 0 -450px;
+    top: 50%;
+    left: 50%;
   }
-
-  .frame.current-frame{
-    opacity: 1;
+  .animation{
+    position: relative;
+    display: block;
+    float: left;
+    width: 178px;
   }
-
 </style>
 <body>
 
-  <figure framenimate class="bust">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
-  </figure>
+  <div class="wrapper">
+    <figure framenimate class="animation">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
+    </figure>
 
-<script src="../dist/framenimate.min.js"></script>
+    <figure>
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
+      <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
+    </figure>
+  </div>
+
+<script src="../src/framenimate.js"></script>
 
 </body>
 </html>

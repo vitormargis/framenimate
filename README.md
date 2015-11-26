@@ -6,20 +6,23 @@ To make a animation frame by frame, just set a collection of imagens into a cont
 
 ```html
   <figure framenimate>
-    <img src="a1.png">
-    <img src="a2.png">
-    <img src="a3.png">
-    <img src="a4.png">
-    <img src="a5.png">
-    <img src="a6.png">
-    <img src="a7.png">
-    <img src="a8.png">
-    <img src="a9.png">
-    <img src="a10.png">
-    <img src="a11.png">
-    <img src="a12.png">
-    <img src="a13.png">
-    <img src="a14.png">
-    <img src="a15.png">
+    <img src="image-1.png">
+    <img src="image-2.png">
+    <img src="image-3.png">
+    <img src="image-4.png">
+    <img src="image-5.png">
+  </figure>
+```
+
+### Options
+If you want to customize your animation you can pass a series of values to de "framenimate" attribute, just as if it was a CSS inline style attribute.
+
+```html
+  <figure framenimate="speed: 200; smooth: true; smoothFactor: 0.2;">
+    <img src="image-1.png">
+    <img src="image-2.png">
+    <img src="image-3.png">
+    <img src="image-4.png">
+    <img src="image-5.png">
   </figure>
 ```
