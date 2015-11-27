@@ -23,7 +23,7 @@
 <body>
 
   <div class="wrapper">
-    <figure framenimate class="animation">
+    <figure class="animation">
       <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
       <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
       <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
@@ -61,6 +61,11 @@
   </div>
 
 <script src="../src/framenimate.js"></script>
+
+<script>
+  var element = document.querySelectorAll('.animation');
+  var animation = new Framenimate(element);
+</script>
 
 </body>
 </html>

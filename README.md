@@ -14,6 +14,13 @@ To make a animation frame by frame, just set a collection of imagens into a cont
   </figure>
 ```
 
+You can also bind framenimate to a DOM node with javascript (no options availabel yet):
+
+```javascript
+  var element = document.querySelectorAll('.animation');
+  var animation = new Framenimate(element);
+```
+
 ### Options
 If you want to customize your animation you can pass a series of values to de "framenimate" attribute, just as if it was a CSS inline style attribute.
 
@@ -26,3 +33,6 @@ If you want to customize your animation you can pass a series of values to de "f
     <img src="image-5.png">
   </figure>
 ```
+
+#### Note
+For now the script only supports one animation per page.
