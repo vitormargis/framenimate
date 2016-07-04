@@ -30,6 +30,13 @@
           }
         }
 
+        if(config) {
+          framenimateConfig[index].speed = config.speed;
+          framenimateConfig[index].smooth = config.smooth;
+          framenimateConfig[index].reverse = config.reverse;
+          framenimateConfig[index].smoothFactor = config.smoothFactor;
+        }
+
         if(framenimateConfig[index].smooth) {
           var framenimateSmoothFactor = framenimateConfig[index].smoothFactor || framenimateConfig[index].speed/1000 || defaults.speed/1000;
           framenimateCSS[index] = "transition: opacity " + framenimateSmoothFactor + "s ease; position: absolute; opacity: 0";
