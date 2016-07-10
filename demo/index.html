@@ -3,161 +3,258 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <script></script>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+  <link href="./prism.css" rel="stylesheet" />
+  <script src="./prism.js"></script>
 </head>
 <style>
+  body{
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    color: #666;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h2 {
+    margin: 0 0 25px;
+    font-size: 1.75em;
+    font-weight: 600;
+    float: left;
+    border-left: 10px solid #ccc;
+    padding-left: 8px;
+    line-height: .85em;
+    border-radius: 2px;
+  }
+
   .wrapper{
-    position: absolute;
-    width: 900px;
-    margin: -300px 0 0 -450px;
-    top: 50%;
-    left: 50%;
+    position: relative;
+    width: 770px;
+    margin: 0px auto 100px;
+    overflow: hidden;
+  }
+
+  header {
+    width: 100%;
+    float: left;
+  }
+
+  article {
+    font-size: 1.155em;
+    line-height: 1.6em;
+  }
+
+  article > ul {
+    float: left;
+    margin: 0;
+    padding: 0 18px;
+  }
+
+  article ul li ul {
+    padding-left: 21px;
+  }
+
+  section {
+    float: left;
+    margin-bottom: 25px;
+  }
+
+  .demo-panel {
+    border: 1px solid rgb(216, 212, 210);
+    float: left;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #f1eeed;
+    position: relative;
+    margin: 0px 0 40px;
+  }
+
+  .demo-panel pre {
+    float: left;
+    min-width: 768px;
+    max-width: 768px;
+    margin: 0;
+    padding: 15px 0 0;
+  }
+
+  .demo-panel .language-markup {
+    padding: 15px 0 15px;
+  }
+
+  .demo-panel :not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: #f1eeed;
   }
 
   figure {
-    margin: 90px 0;
+    display: none;
+  }
+
+  .demo-panel figure {
+    display: block;
+    margin: 0;
     position: relative;
     float: left;
-    width: 180px;
+    width: 178px;
+    opacity: .75;
+    -webkit-filter: brightness(.985) grayscale(.2);
+    filter: brightness(.985) grayscale(.2);
+    padding: 20px;
+    top: 50%;
+    position: absolute;
+    margin-top: -85px;
+    right: 30px;
+  }
+
+  .intro {
+    text-align: center;
+    font-weight: 100;
+    font-size: 1.45em;
+    font-style: italic;
+    color: #999;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px dotted #e5e5e5;
   }
 
 </style>
 <body>
 <div class="wrapper">
-  <figure framenimate>
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
-  </figure>
-  <figure framenimate="reverse:true;">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
-  </figure>
-  <figure class="animation" frameanimate="">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
-  </figure>
-  <figure class="animation">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
-  </figure>
-  <figure class="animation">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
-  </figure>
-  <figure class="animation">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
-  </figure>
-  <figure class="animation-2">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a1.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a2.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a3.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a4.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a5.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a6.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a7.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a8.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a9.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a10.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a11.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a12.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a13.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a14.png">
-    <img src="https://raw.githubusercontent.com/vitormargis/framenimate/master/demo/a15.png">
-  </figure>
-  </div>
+  <img style="width: 600px; margin: 20px auto 5px; display: block;" src="framenimate.svg" alt="">
+  <section>
+    <article class="intro">
+      <p>
+        <strong><i>Framenimate</i></strong> is a small javascript plugin to create simple sequential frames animations. It was born out os personal necessity of creating a sequential animation out of a series of photos taken using de sequential shooting function from digital cameras.
+      </p>
+    </article>
+  </section>
+  <section>
+    <header>
+      <h2>Basic Usage</h2>
+    </header>
+    <article>
+      <p>To start a new frame animation is as simples as eeting the <strong><i>framenimate</i></strong> attribute to the wrapper tag where your images/frame are contained:</p>
+    </article>
+    <div class="demo-panel">
+      <pre><code class="language-markup">
+        <figure framenimate >
+            <img src="image-1.png">
+            <img src="image-2.png">
+            <img src="image-3.png">
+            <img src="image-4.png">
+            ...
+        </figure>
+      </code></pre>
+      <figure framenimate>
+        <img src="./a1.png">
+        <img src="./a2.png">
+        <img src="./a3.png">
+        <img src="./a4.png">
+        <img src="./a5.png">
+        <img src="./a6.png">
+        <img src="./a7.png">
+        <img src="./a8.png">
+        <img src="./a9.png">
+        <img src="./a10.png">
+        <img src="./a11.png">
+        <img src="./a12.png">
+        <img src="./a13.png">
+        <img src="./a14.png">
+        <img src="./a15.png">
+      </figure>
+    </div>
+    <article>
+      <p>To change the animation properties it's possibel to add some cutom rules to the <strong><i>framenimate</i></strong> attrubute:</p>
+    </article>
+    <div class="demo-panel">
+      <pre><code class="language-markup">
+        <figure framenimate="speed: 25" >
+            <img src="image-1.png">
+            <img src="image-2.png">
+            <img src="image-3.png">
+            <img src="image-4.png">
+            ...
+        </figure>
+      </code></pre>
+      <figure framenimate="speed: 25">
+        <img src="./a1.png">
+        <img src="./a2.png">
+        <img src="./a3.png">
+        <img src="./a4.png">
+        <img src="./a5.png">
+        <img src="./a6.png">
+        <img src="./a7.png">
+        <img src="./a8.png">
+        <img src="./a9.png">
+        <img src="./a10.png">
+        <img src="./a11.png">
+        <img src="./a12.png">
+        <img src="./a13.png">
+        <img src="./a14.png">
+        <img src="./a15.png">
+      </figure>
+    </div>
+    <article>
+      <p>It is also possible to select the wrappers DOM node and create a new instance of animation for this target(s) through Javascript with <strong><i>new Framenimate</i></strong>:</p>
+    </article>
+    <div class="demo-panel">
+      <pre><code class="language-js">
+          var element = document.querySelectorAll('.frames');
+          var animation = new Framenimate(element, {
+            speed: 400,
+            smooth: true,
+            smoothFactor: 0.5,
+            reverse: true
+          });
 
-<script src="../src/framenimate.js"></script>
+      </code></pre>
+      <figure class="frames">
+        <img src="./a1.png">
+        <img src="./a2.png">
+        <img src="./a3.png">
+        <img src="./a4.png">
+        <img src="./a5.png">
+        <img src="./a6.png">
+        <img src="./a7.png">
+        <img src="./a8.png">
+        <img src="./a9.png">
+        <img src="./a10.png">
+        <img src="./a11.png">
+        <img src="./a12.png">
+        <img src="./a13.png">
+        <img src="./a14.png">
+        <img src="./a15.png">
+      </figure>
+    </div>
+  </section>
+  </section>
+    <header>
+      <h2>Backlog</h2>
+    </header>
+    <article>
+      <ul>
+        <li>
+          Basic animattion controls
+          <ul>
+            <li>Stop aniation on hover</li>
+            <li>Set animation position (by frame)</li>
+          </ul>
+        </li>
+        <li>Animate using sprites</li>
+      </ul>
+    </article>
+  </section>
+</div>
+
+<script src="./framenimate.min.js"></script>
 
 <script>
-  var element = document.querySelectorAll('.animation');
+  var element = document.querySelectorAll('.frames');
   var animation = new Framenimate(element, {
-    speed: 100,
-    reverse: true
-  });
-  var element = document.querySelectorAll('.animation-2');
-  var animation = new Framenimate(element, {
-    speed: 300,
-    reverse: false
-  });
+    reverse: true,
+    speed: 400,
+    smooth: true,
+    snoothFactor: .5,
+  })
 </script>
 
 </body>
