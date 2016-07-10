@@ -77,10 +77,6 @@
     padding: 15px 0 0;
   }
 
-  .demo-panel .language-markup {
-    padding: 15px 0 15px;
-  }
-
   .demo-panel :not(pre) > code[class*="language-"], pre[class*="language-"] {
     background: #f1eeed;
   }
@@ -115,6 +111,15 @@
     padding-bottom: 20px;
     border-bottom: 1px dotted #e5e5e5;
   }
+  .controls {
+    float: right;
+    margin: 0 12px 8px 0;
+    cursor: pointer;
+  }
+
+  .controls a:hover {
+    opacity: .5;
+  }
 
 </style>
 <body>
@@ -123,7 +128,7 @@
   <section>
     <article class="intro">
       <p>
-        <strong><i>Framenimate</i></strong> is a small javascript plugin to create simple sequential frames animations. It was born out os personal necessity of creating a sequential animation out of a series of photos taken using de sequential shooting function from digital cameras.
+        <strong><i>Framenimate</i></strong> is a small javascript plugin to create simple sequential frames animations. It was born from a personal necessity of creating a sequential animation out of a series of photos taken using the sequential shooting function from digital cameras. Enjoy!
       </p>
     </article>
   </section>
@@ -136,13 +141,13 @@
     </article>
     <div class="demo-panel">
       <pre><code class="language-markup">
-        <figure framenimate >
-            <img src="image-1.png">
-            <img src="image-2.png">
-            <img src="image-3.png">
-            <img src="image-4.png">
-            ...
-        </figure>
+        &lt;figure framenimate &gt;
+          &lt;img src=&quot;image-1.png&quot;&gt;
+          &lt;img src=&quot;image-2.png&quot;&gt;
+          &lt;img src=&quot;image-3.png&quot;&gt;
+          &lt;img src=&quot;image-4.png&quot;&gt;
+          ...
+        &lt;/figure&gt;
       </code></pre>
       <figure framenimate>
         <img src="./a1.png">
@@ -162,18 +167,23 @@
         <img src="./a15.png">
       </figure>
     </div>
+  </section>
+  <section>
+    <header>
+      <h2>Options</h2>
+    </header>
     <article>
       <p>To change the animation properties it's possibel to add some cutom rules to the <strong><i>framenimate</i></strong> attrubute:</p>
     </article>
     <div class="demo-panel">
       <pre><code class="language-markup">
-        <figure framenimate="speed: 25" >
-            <img src="image-1.png">
-            <img src="image-2.png">
-            <img src="image-3.png">
-            <img src="image-4.png">
-            ...
-        </figure>
+        &lt;figure framenimate="speed:25;" &gt;
+          &lt;img src=&quot;image-1.png&quot;&gt;
+          &lt;img src=&quot;image-2.png&quot;&gt;
+          &lt;img src=&quot;image-3.png&quot;&gt;
+          &lt;img src=&quot;image-4.png&quot;&gt;
+          ...
+        &lt;/figure&gt;
       </code></pre>
       <figure framenimate="speed: 25">
         <img src="./a1.png">
@@ -194,18 +204,16 @@
       </figure>
     </div>
     <article>
-      <p>It is also possible to select the wrappers DOM node and create a new instance of animation for this target(s) through Javascript with <strong><i>new Framenimate</i></strong>:</p>
+      <p>It is also possible to select the wrappers DOM node and create a new instance of animation for this target(s) through Javascript with <strong><i>new Framenimate</i></strong> and set some options:</p>
     </article>
     <div class="demo-panel">
       <pre><code class="language-js">
-          var element = document.querySelectorAll('.frames');
-          var animation = new Framenimate(element, {
-            speed: 400,
-            smooth: true,
-            smoothFactor: 0.5,
-            reverse: true
-          });
-
+        var element = document.querySelectorAll('.frames');
+        var animation = new Framenimate(element, {
+          speed: 400,
+          smooth: 0.5,
+          reverse: true
+        });
       </code></pre>
       <figure class="frames">
         <img src="./a1.png">
@@ -226,19 +234,82 @@
       </figure>
     </div>
   </section>
+  <section>
+    <header>
+      <h2>Methods</h2>
+    </header>
+    <article>
+      <p><strong><i>Framenimate</i></strong> has also some methods for animation manipulation:</p>
+    </article>
+    <div class="demo-panel">
+      <pre><code class="language-js">
+        var rvrs = document.querySelectorAll('.rvrs');
+        var play = document.querySelectorAll('.play');
+        var stop = document.querySelectorAll('.stop');
+        var next = document.querySelectorAll('.next');
+        var prev = document.querySelectorAll('.prev');
+        var goto = document.querySelectorAll('.goto');
+
+        rvrs[0].addEventListener('click', function(){
+          animation.reverse()
+        })
+
+        play[0].addEventListener('click', function(){
+          animation.play()
+        })
+
+        stop[0].addEventListener('click', function(){
+          animation.stop()
+        })
+
+        next[0].addEventListener('click', function(){
+          animation.stop()
+          animation.next()
+        })
+
+        prev[0].addEventListener('click', function(){
+          animation.stop()
+          animation.prev()
+        })
+
+        goto[0].addEventListener('click', function(){
+          animation.stop()
+          animation.goTo(10)
+        })
+      </code></pre>
+      <figure class="frames2">
+        <img src="./a1.png">
+        <img src="./a2.png">
+        <img src="./a3.png">
+        <img src="./a4.png">
+        <img src="./a5.png">
+        <img src="./a6.png">
+        <img src="./a7.png">
+        <img src="./a8.png">
+        <img src="./a9.png">
+        <img src="./a10.png">
+        <img src="./a11.png">
+        <img src="./a12.png">
+        <img src="./a13.png">
+        <img src="./a14.png">
+        <img src="./a15.png">
+      </figure>
+      <div class="controls">
+        <a class="rvrs">reverse</a> |
+        <a class="play">play</a> |
+        <a class="stop">stop</a> |
+        <a class="prev">prev</a> |
+        <a class="next">next</a> |
+        <a class="goto">goTo(10)</a>
+      </div>
+    </div>
+  </section>
   </section>
     <header>
       <h2>Backlog</h2>
     </header>
     <article>
       <ul>
-        <li>
-          Basic animattion controls
-          <ul>
-            <li>Stop aniation on hover</li>
-            <li>Set animation position (by frame)</li>
-          </ul>
-        </li>
         <li>Animate using sprites</li>
       </ul>
     </article>
@@ -252,9 +323,52 @@
   var animation = new Framenimate(element, {
     reverse: true,
     speed: 400,
-    smooth: true,
-    snoothFactor: .5,
+    smooth: 0.5,
   })
+  animation.play()
+
+  var element2 = document.querySelectorAll('.frames2');
+  var rvrs = document.querySelectorAll('.rvrs');
+  var play = document.querySelectorAll('.play');
+  var stop = document.querySelectorAll('.stop');
+  var next = document.querySelectorAll('.next');
+  var prev = document.querySelectorAll('.prev');
+  var goto = document.querySelectorAll('.goto');
+  var animation2 = new Framenimate(element2, {
+    reverse: false,
+    speed: 50,
+  })
+
+  animation2.play()
+
+  rvrs[0].addEventListener('click', function(){
+    animation2.reverse()
+  })
+
+  play[0].addEventListener('click', function(){
+    animation2.play()
+  })
+
+  stop[0].addEventListener('click', function(){
+    animation2.stop()
+  })
+
+  next[0].addEventListener('click', function(){
+    animation2.stop()
+    animation2.next()
+  })
+
+  prev[0].addEventListener('click', function(){
+    animation2.stop()
+    animation2.prev()
+  })
+
+  goto[0].addEventListener('click', function(){
+    animation2.stop()
+    animation2.goTo(10)
+  })
+
+
 </script>
 
 </body>

@@ -6,13 +6,14 @@
     smoothFactor: 0,
   };
 
-  this.Framenimate = function(element, config) {
+  window.Framenimate = function(element, config) {
     framenimateWrapper = [];
     framenimateWrapper = element || document.querySelectorAll('[framenimate]');
     for(var index in nodeListToArray(framenimateWrapper)) {
       var frame = [];
       var framenimateCSS = []
       var framenimateConfig = [];
+
 
       frame[index] = 0
       framenimateConfig[index] = {};
@@ -33,7 +34,7 @@
       }
 
       if(framenimateConfig[index].smooth) {
-        var framenimateSmoothFactor = framenimateConfig[index].smoothFactor || framenimateConfig[index].speed/1000 || defaults.speed/1000;
+        var framenimateSmoothFactor = framenimateConfig[index].smooth || framenimateConfig[index].speed/1000 || defaults.speed/1000;
         framenimateCSS[index] = "transition: opacity " + framenimateSmoothFactor + "s ease; position: absolute; opacity: 0";
       } else {
         framenimateCSS[index] = "position: absolute; opacity: 0";
@@ -45,18 +46,70 @@
       if(framenimateOrder.toString() === 'true') {
         var frames = nodeListToArray(framenimateWrapper[index].children).reverse();
       } else {
-        var frames = Array.prototype.slice.call(framenimateWrapper[index].children);
+        var frames = nodeListToArray(framenimateWrapper[index].children);
       }
 
       for (var i = 0; i < frames.length; ++i) {
         frames[i].setAttribute('style', framenimateCSS[index]);
       }
 
-      setInterval(loop.bind(null, index, frame, frames, framenimateConfig, framenimateCSS), framenimateConfig[index].speed || defaults.speed);
+      var  framenimate = {
+        totalFrames: frames.length,
+        currentFrame: frame[index]
+      }
+
+      var direction = 1
+      if(framenimateWrapper[index].getAttribute('framenimate') || framenimateWrapper[index].getAttribute('framenimate') === '') {
+        setInterval(loop.bind(null, index, frame, frames, framenimateConfig, framenimateCSS, framenimate), framenimateConfig[index].speed || defaults.speed);
+      }
+
+      framenimate.stop = function() {
+        window.clearInterval(framenimate.frameLoop)
+      }
+
+      framenimate.next = function() {
+        framenimate.goTo(framenimate.currentFrame+2)
+      };
+
+      framenimate.prev = function() {
+        if (framenimate.currentFrame === 0) {
+          framenimate.goTo(framenimate.totalFrames)
+        }
+        framenimate.goTo(framenimate.currentFrame)
+      };
+
+      framenimate.play = function(config) {
+        if (framenimate.frameLoop) {
+          framenimate.stop()
+        }
+        framenimate.frameLoop = setInterval(loop.bind(null, index, frame, frames, framenimateConfig, framenimateCSS, framenimate), framenimateConfig[index].speed || defaults.speed);
+      };
+
+      framenimate.reverse = function(config) {
+        frames = frames.reverse();
+        framenimate.stop()
+        framenimate.play()
+      };
+
+      framenimate.goTo = function(config) {
+        if (direction === 0) {
+          frames = frames.reverse();
+          direction = 1
+        }
+        if (config) {
+          for (var i = 0; i < frames.length; ++i) {
+            frames[i].setAttribute('style', framenimateCSS[index]);
+          }
+          frame[index] = (config-2)
+          loop(index, frame, frames, framenimateConfig, framenimateCSS, framenimate)
+        }
+      };
     }
+
+    return framenimate
   };
 
-  function loop(index, frame, frames, framenimateConfig, framenimateCSS) {
+  function loop(index, frame, frames, framenimateConfig, framenimateCSS, framenimate) {
     frame[index] <= frames.length-2 ? frame[index]++ : frame[index] = 0;
 
     function removeCurrentFrame() {
@@ -66,6 +119,8 @@
 
     setTimeout(removeCurrentFrame, framenimateConfig[index].speed/2 || defaults.speed/2);
     frames[frame[index]].setAttribute('style', framenimateCSS[index].replace('opacity: 0', 'opacity: 1'));
+
+    framenimate.currentFrame = frame[index];
   };
 
   function nodeListToArray(nodelist) {
