@@ -55,7 +55,7 @@
 
       var  framenimate = {
         totalFrames: frames.length,
-        currentFrame: frame[index]
+        currentFrame: frame[index] + 1
       }
 
       var direction = 1
@@ -68,14 +68,14 @@
       }
 
       framenimate.next = function() {
-        framenimate.goTo(framenimate.currentFrame+2)
+        framenimate.goTo(framenimate.currentFrame+1)
       };
 
       framenimate.prev = function() {
-        if (framenimate.currentFrame === 0) {
+        if (framenimate.currentFrame === 1) {
           framenimate.goTo(framenimate.totalFrames)
         }
-        framenimate.goTo(framenimate.currentFrame)
+        framenimate.goTo(framenimate.currentFrame-1)
       };
 
       framenimate.play = function(config) {
@@ -120,7 +120,7 @@
     setTimeout(removeCurrentFrame, framenimateConfig[index].speed/2 || defaults.speed/2);
     frames[frame[index]].setAttribute('style', framenimateCSS[index].replace('opacity: 0', 'opacity: 1'));
 
-    framenimate.currentFrame = frame[index];
+    framenimate.currentFrame = frame[index] + 1;
   };
 
   function nodeListToArray(nodelist) {

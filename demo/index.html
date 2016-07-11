@@ -347,6 +347,7 @@
 
   play[0].addEventListener('click', function(){
     animation2.play()
+    console.log(animation2.currentFrame)
   })
 
   stop[0].addEventListener('click', function(){
@@ -365,7 +366,10 @@
 
   goto[0].addEventListener('click', function(){
     animation2.stop()
+    console.log(animation2.currentFrame)
+    console.log(animation2.totalFrames)
     animation2.goTo(10)
+    console.log(animation2.currentFrame)
   })
 
 
