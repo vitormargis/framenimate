@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+  <link href="./prism.css" rel="stylesheet" />
+  <script src="./prism.js"></script>
+</head>
+<style>
+  body{
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    color: #666;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+
+  .wrapper{
+    position: relative;
+    width: 770px;
+    margin: 0px auto 100px;
+  }
+
+
+  .demo-panel {
+    border: 1px solid rgb(216, 212, 210);
+    background: #ffffff;
+    border-radius: 3px;
+    height: 150px;
+    width: 770px;
+    position: fixed
+  }
+
+  .demo-panel figure {
+    display: block;
+    margin: 0;
+    position: relative;
+    float: right;
+    height: 150px;
+    width: 150px;
+  }
+
+  .r2 img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .controls {
+    float: left;
+  }
+
+
+</style>
+<body>
+<div class="wrapper">
+    <div class="demo-panel">
+      <figure class="frames r2">
+        <img src="./b1.jpg">
+        <img src="./b2.jpg">
+        <img src="./b3.jpg">
+        <img src="./b4.jpg">
+        <img src="./b5.jpg">
+        <img src="./b6.jpg">
+        <img src="./b7.jpg">
+        <img src="./b8.jpg">
+        <img src="./b9.jpg">
+        <img src="./b10.jpg">
+        <img src="./b11.jpg">
+      </figure>
+      <div class="controls">
+        <input class="rang" type="range" name="points" value="0" min="0">
+      </div>
+    </div>
+    <div style="height: 1000px"></div>
+</div>
+
+<script src="../src/framenimate.js"></script>
+
+<script>
+
+  var element = document.querySelectorAll('.frames');
+  var rang = document.querySelectorAll('.rang');
+  var animation = new Framenimate(element, {
+    reverse: false,
+    speed: 100,
+  })
+
+  animation.goTo(1)
+
+  rang[0].setAttribute('max', animation.totalFrames)
+
+  rang[0].addEventListener('mousemove', function(){
+    animation.stop()
+    if (rang[0].value > 0) animation.goTo(rang[0].value)
+  })
+
+  window.addEventListener("scroll", function(){
+    docHeight = document.body.offsetHeight
+
+    animationStep = docHeight/animation.totalFrames
+    frame = window.scrollY*10.5/animationStep
+    if (frame === parseInt(frame, 10)) {
+      console.log(frame)
+    }
+    console.log(parseInt(frame))
+    animation.goTo(parseInt(frame))
+  })
+
+
+</script>
+
+</body>
+</html>

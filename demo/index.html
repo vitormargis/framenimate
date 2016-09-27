@@ -316,7 +316,7 @@
   </section>
 </div>
 
-<script src="./framenimate.min.js"></script>
+<script src="../src/framenimate.js"></script>
 
 <script>
   var element = document.querySelectorAll('.frames');
@@ -348,6 +348,7 @@
   play[0].addEventListener('click', function(){
     animation2.play()
     console.log(animation2.currentFrame)
+    console.log(animation2.totalFrames)
   })
 
   stop[0].addEventListener('click', function(){
