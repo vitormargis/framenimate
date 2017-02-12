@@ -113,16 +113,59 @@
   }
   .controls {
     float: right;
-    margin: 0 12px 8px 0;
+    margin: 0 12px 45px 0;
     cursor: pointer;
+  }
+
+  .rang {
+    position: absolute;
+    right: 12px;
+    bottom: 15px;
+    width: 284px;
   }
 
   .controls a:hover {
     opacity: .5;
   }
 
+  .git-logo {
+    display: block;
+    position: fixed;
+    right: 80px;
+    top: 20px;
+    opacity: .5;
+  }
+
+  .git-logo:hover {
+    opacity: 1;
+  }
+
+  .git-logo img {
+    width: 50px;
+  }
+
 </style>
 <body>
+
+<a href="https://github.com/vitormargis/framenimate" class="git-logo">
+  <img src="./git1.svg">
+  <img src="./git2.svg">
+  <img src="./git3.svg">
+  <img src="./git4.svg">
+  <img src="./git5.svg">
+  <img src="./git6.svg">
+  <img src="./git7.svg">
+  <img src="./git8.svg">
+  <img src="./git1.svg">
+  <img src="./git2.svg">
+  <img src="./git3.svg">
+  <img src="./git4.svg">
+  <img src="./git5.svg">
+  <img src="./git6.svg">
+  <img src="./git7.svg">
+  <img src="./git8.svg">
+</a>
+
 <div class="wrapper">
   <img style="width: 600px; margin: 20px auto 5px; display: block;" src="framenimate.svg" alt="">
   <section>
@@ -249,6 +292,13 @@
         var next = document.querySelectorAll('.next');
         var prev = document.querySelectorAll('.prev');
         var goto = document.querySelectorAll('.goto');
+        var rang = document.querySelectorAll('.rang');
+
+        rang[0].setAttribute('max', animation.totalFrames)
+        rang[0].addEventListener('mousemove', function(){
+          animation.stop()
+          if (rang[0].value > 0) animation.goTo(rang[0].value)
+        })
 
         rvrs[0].addEventListener('click', function(){
           animation.reverse()
@@ -295,6 +345,7 @@
         <img src="./a15.png">
       </figure>
       <div class="controls">
+        <input class="rang" type="range" name="points" value="0" min="0">
         <a class="rvrs">reverse</a> |
         <a class="play">play</a> |
         <a class="stop">stop</a> |
@@ -306,17 +357,33 @@
   </section>
   </section>
     <header>
-      <h2>Backlog</h2>
+      <h2>Easter Egg</h2>
     </header>
     <article>
-      <ul>
-        <li>Animate using sprites</li>
-      </ul>
+      <p>The github logo animation on scroll, just to give some ideas. Also, as you can see in this example, there are two attributes you can return at any given time once the animation has been started: <strong>currentFrame</strong> and <strong>totalFrames</strong></p>
     </article>
+    <div class="demo-panel">
+      <pre><code class="language-js">
+        var gitLogo = document.querySelectorAll('.git-logo');
+        var gitAnimation = new Framenimate(gitLogo, {
+          reverse: false,
+          speed: 100,
+        })
+        gitAnimation.goTo(1)
+
+        window.addEventListener("scroll", function(){
+          docHeight = document.body.offsetHeight
+          animationStep = docHeight/gitAnimation.totalFrames
+          frame = window.scrollY*1/animationStep
+          gitAnimation.goTo(parseInt(frame))
+          console.log(animation.currentFrame);
+        })
+      </code></pre>
+    </div>
   </section>
 </div>
 
-<script src="../src/framenimate.js"></script>
+<script src="./framenimate.js"></script>
 
 <script>
   var element = document.querySelectorAll('.frames');
@@ -334,6 +401,8 @@
   var next = document.querySelectorAll('.next');
   var prev = document.querySelectorAll('.prev');
   var goto = document.querySelectorAll('.goto');
+  var rang = document.querySelectorAll('.rang');
+
   var animation2 = new Framenimate(element2, {
     reverse: false,
     speed: 50,
@@ -341,14 +410,18 @@
 
   animation2.play()
 
+  rang[0].setAttribute('max', animation2.totalFrames)
+  rang[0].addEventListener('mousemove', function(){
+    animation2.stop()
+    if (rang[0].value > 0) animation2.goTo(rang[0].value)
+  })
+
   rvrs[0].addEventListener('click', function(){
     animation2.reverse()
   })
 
   play[0].addEventListener('click', function(){
     animation2.play()
-    console.log(animation2.currentFrame)
-    console.log(animation2.totalFrames)
   })
 
   stop[0].addEventListener('click', function(){
@@ -371,6 +444,21 @@
     console.log(animation2.totalFrames)
     animation2.goTo(10)
     console.log(animation2.currentFrame)
+  })
+
+  var gitLogo = document.querySelectorAll('.git-logo');
+  var gitAnimation = new Framenimate(gitLogo, {
+    reverse: false,
+    speed: 100,
+  })
+  gitAnimation.goTo(1)
+
+  window.addEventListener("scroll", function(){
+    docHeight = document.body.offsetHeight
+    animationStep = docHeight/gitAnimation.totalFrames
+    frame = window.scrollY*1/animationStep
+    gitAnimation.goTo(parseInt(frame))
+    console.log(animation.currentFrame);
   })
 
 
